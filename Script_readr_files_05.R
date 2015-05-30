@@ -8,6 +8,8 @@
 ##--------- 1. working directory wd
 # setear wd
 wd0 <- "C:/Users/Toshiba/Desktop/readr_files_05"
+Wd0  <- getwd()
+
 setwd(dir = wd0)
 
 # obtencion de wd
@@ -39,7 +41,8 @@ list.files()
 # archivo formato txt
 data_txt1 <- read.table(file = "data_read.txt",sep = "\t", dec = ",", header = TRUE)
 str(data_txt1)
-View(data_txt1)
+
+view(data_txt1)
 
 names(data_txt1)
 class(data_txt1)
@@ -68,7 +71,7 @@ nrow(data_csv)
 
 summary(data_csv)
 
-# sep = ",", dec = "."
+# sep = ",", dec = ".",header= TRUE
 data_csv1 <- read.csv(file = "data_read.csv")
 str(data_csv1)
 
@@ -127,9 +130,11 @@ library(XML)
 # install.packages("RCurl", dependencies = TRUE)
 # install.packages("XML", dependencies = TRUE)
 # http://www.sbs.gob.ec/practg/sbs_index?vp_art_id=&vp_tip=6&vp_buscr=/practg/pk_cons_bdd.p_bal_entdd_finnc
-cod_inst=1028
-cod_mes=11
-cod_anio=2010
+cod_inst<-1028
+cod_mes<-11
+cod_anio<-2010
+paste('http://www.sbs.gob.ec/practg/pk_cons_bdd.p_bal_entdd_finnc?vp_cod_tip_instt=3&vp_cod_instt=',
+      cod_inst,'&vp_anio=', cod_anio, '&vp_mes=', cod_mes, '&vp_cod_tip_catlg=14')
 base_url <- paste('http://www.sbs.gob.ec/practg/pk_cons_bdd.p_bal_entdd_finnc?vp_cod_tip_instt=3&vp_cod_instt=',
                   cod_inst,'&vp_anio=', cod_anio, '&vp_mes=', cod_mes, '&vp_cod_tip_catlg=14')
 table_url <- readHTMLTable(base_url)
@@ -408,7 +413,7 @@ hist(edad)
 hist(edad,breaks = 50)
 hist(edad,breaks = 50, xlab = "Edad", ylab="Frecuencia", main="Histograma de Edad")
 hist(edad,breaks = 50, xlab = "Edad", ylab="Frecuencia", main="Histograma de Edad",
-     col="steelblue", border="gray60")
+     col="red", border="black")
 
 # Diagrama de cajas
 boxplot(edad)
